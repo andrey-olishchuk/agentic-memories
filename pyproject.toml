@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentic-memories"
+version = "0.1.0"
+description = "Framework-agnostic MEMORY.md manifest loader, validator, triage, and invocation helpers."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "agentic-memories contributors" }]
+dependencies = ["pydantic>=2.8"]
+keywords = ["agents", "memory", "manifest", "MEMORY.md"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+examples = ["openai>=1.0.0", "pydantic-ai", "python-dotenv>=1.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/vossmoos/agentic-memories"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentic_memories"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
